@@ -1,0 +1,31 @@
+// import { default as videojs } from "video.js";
+const mp4 = "/clients/video.mp4";
+
+const videojs = /** @type {import("video.js").default} */ (window.videojs);
+
+/** @type {import("video.js").default} */
+export const player = videojs("my-player", {
+  fluid: true,
+  controls: true,
+  fullscreenToggle: false,
+  autoplay: false,
+});
+window.player = player;
+
+player.ready(() => {
+  player.tech(false);
+});
+
+player.audioTracks().addEventListener("addtrack", function (e) {
+  // if (e.track.label === paramName) {
+  //   // TODO fix race
+  //   setTimeout(() => {
+  //     e.track.enabled = true;
+  //   }, 100);
+  // }
+});
+
+player.src(
+  mp4,
+  // "https://customer-m17spzblvpq4qzi0.cloudflarestream.com/2aff9945fd90b8ad3829a224ac5cd0b4/manifest/video.m3u8",
+);

@@ -25,24 +25,16 @@ player.audioTracks().addEventListener("addtrack", function (e) {
   // }
 });
 
-player.on('touchstart', function (e) {
-  if (e.target.nodeName === 'VIDEO') {
-    if (player.paused()) {
-      this.play();
-    } else {
-      this.pause();
-    }
-  }
-});
-
-
-
 player.src(
   mp4,
   // "https://customer-m17spzblvpq4qzi0.cloudflarestream.com/2aff9945fd90b8ad3829a224ac5cd0b4/manifest/video.m3u8",
 );
 
-window.playInitiator = function(elem){
-  player.play()
-  elem.remove()
-}
+$(() => {
+  $("#play-initiator").on("tap", function () {
+    $(this).toggleClass("hidden");
+    setTimeout(() => {
+      player.play();
+    }, 1000);
+  });
+});

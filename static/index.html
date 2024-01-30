@@ -15,6 +15,9 @@
       href="https://unpkg.com/video.js@7/dist/video-js.min.css"
       rel="stylesheet"
     />
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
     <script src="/index.js" type="module" defer></script>
     <style>
       .vjs-big-play-button {
@@ -26,28 +29,43 @@
     <div class="flex items w-screen h-screen justify-center">
       <div class="relative w-full max-w-6xl pt-5">
         <div class="relative">
-          <video height="auto" id="my-player" class="video-js" controls></video>
+          <video
+            height="auto"
+            id="my-player"
+            class="video-js w-full min-h-40"
+            controls
+          ></video>
           <div
             id="lottie"
             class="absolute top-0 h-full w-full left-0 pointer-events-none"
           ></div>
           <div
             id="play-initiator"
-            class="bg-black opacity-50 absolute h-full w-full top-0 flex items-center justify-center"
-            hx-on:click="playInitiator(this)"
+            class="bg-black opacity-50 absolute h-full w-full top-0 flex items-center justify-center text-white"
           >
             <button
-              class="bg-black border-white border rounded-full w-20 h-20 p-2 opacity-60 select-none flex items-center justify-center"
+              class="bg-black rounded-full w-20 h-20 opacity-60 select-none flex items-center justify-center"
             >
               <svg
-                class="fill-white"
-                focusable="false"
-                aria-hidden="true"
-                viewBox="0 0 24 24"
-                data-testid="PlayArrowIcon"
-                aria-label="fontSize large"
+                fill="#fff"
+                height="800px"
+                width="800px"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                viewBox="0 0 60 60"
+                xml:space="preserve"
               >
-                <path d="M8 5v14l11-7z"></path>
+                <g>
+                  <path
+                    d="M45.563,29.174l-22-15c-0.307-0.208-0.703-0.231-1.031-0.058C22.205,14.289,22,14.629,22,15v30
+		c0,0.371,0.205,0.711,0.533,0.884C22.679,45.962,22.84,46,23,46c0.197,0,0.394-0.059,0.563-0.174l22-15
+		C45.836,30.64,46,30.331,46,30S45.836,29.36,45.563,29.174z M24,43.107V16.893L43.225,30L24,43.107z"
+                  />
+                  <path
+                    d="M30,0C13.458,0,0,13.458,0,30s13.458,30,30,30s30-13.458,30-30S46.542,0,30,0z M30,58C14.561,58,2,45.439,2,30
+		S14.561,2,30,2s28,12.561,28,28S45.439,58,30,58z"
+                  />
+                </g>
               </svg>
             </button>
           </div>

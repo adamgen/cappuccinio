@@ -1,5 +1,4 @@
-// import lottie from "lottie-web";
-import anim from "/clients/Text.json" assert { type: "json" };
+const anim = await fetch("/clients/Text.json").then(a=>a.json())
 
 const lottie = /** @type {import("lottie-web").default} */ (window.lottie);
 

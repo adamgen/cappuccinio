@@ -7,7 +7,8 @@ export const player = videojs(
   "my-player",
   {
     fluid: true,
-    fullscreenToggle: true,
+    fullscreenToggle: false,
+    playsInline: true,
     autoplay: true,
     controls: true,
     controlBar: {

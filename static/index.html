@@ -31,6 +31,26 @@
             id="lottie"
             class="absolute top-0 h-full w-full left-0 pointer-events-none"
           ></div>
+          <div
+            id="play-initiator"
+            class="bg-black opacity-50 absolute h-full w-full top-0 flex items-center justify-center"
+            hx-on:click="playInitiator(this)"
+          >
+            <button
+              class="bg-black border-white border rounded-full w-20 h-20 p-2 opacity-60 select-none flex items-center justify-center"
+            >
+              <svg
+                class="fill-white"
+                focusable="false"
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                data-testid="PlayArrowIcon"
+                aria-label="fontSize large"
+              >
+                <path d="M8 5v14l11-7z"></path>
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
     </div>

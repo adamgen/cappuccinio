@@ -3,11 +3,15 @@ import anim from "/clients/Text.json" assert { type: "json" };
 
 const lottie = /** @type {import("lottie-web").default} */ (window.lottie);
 
-
 // TODO adjust text https://lottiefiles.github.io/lottie-docs/text/#text-follow-path
 
-anim.layers[1].t.d.k[0].s.t = "אבי";
-anim.layers[2].t.d.k[0].s.t = "גרייבר";
+const params = new URLSearchParams(window.location.search);
+
+const firstName = params.get("f") ?? "";
+const lastName = params.get("l") ?? "";
+
+anim.layers[1].t.d.k[0].s.t = firstName;
+anim.layers[2].t.d.k[0].s.t = lastName;
 
 delete anim.chars;
 
@@ -29,6 +33,6 @@ export const animItem = lottie.loadAnimation({
   },
 });
 
-window.animItem = animItem
+window.animItem = animItem;
 
-animItem.goToAndStop(4000)
+// animItem.goToAndStop(4000)

@@ -1,5 +1,5 @@
 // import { default as videojs } from "video.js";
-const mp4 = "/clients/video.mp4";
+const mp4 = "/clients/new.mp4";
 
 const videojs = /** @type {import("video.js").default} */ (window.videojs);
 

@@ -1,40 +1,46 @@
-// import { default as videojs } from "video.js";
 const mp4 = "/clients/new.mp4";
 
 const videojs = /** @type {import("video.js").default} */ (window.videojs);
 
 /** @type {import("video.js").default} */
-export const player = videojs("my-player", {
-  fluid: true,
-  controls: true,
-  fullscreenToggle: false,
-  autoplay: true,
-});
+export const player = videojs(
+  "my-player",
+  {
+    fluid: true,
+    fullscreenToggle: true,
+    autoplay: true,
+    controls: true,
+    controlBar: {
+      pictureInPictureToggle: false,
+    },
+  },
+  () => {
+    player.on("fullscreenchange", function () {
+      if (player.isFullscreen()) {
+        player.exitFullscreen();
+      }
+    });
+  },
+);
 window.player = player;
 
 player.ready(() => {
   player.tech(false);
 });
 
-player.audioTracks().addEventListener("addtrack", function (e) {
-  // if (e.track.label === paramName) {
-  //   // TODO fix race
-  //   setTimeout(() => {
-  //     e.track.enabled = true;
-  //   }, 100);
-  // }
-});
-
-player.src(
-  mp4,
-  // "https://customer-m17spzblvpq4qzi0.cloudflarestream.com/2aff9945fd90b8ad3829a224ac5cd0b4/manifest/video.m3u8",
-);
+player.src(mp4);
 
 $(() => {
-  $("#play-initiator").on("tap", function () {
-    $(this).toggleClass("hidden");
-    setTimeout(() => {
+  $("#my-player").on("tap", function () {
+    if (player.paused()) {
       player.play();
-    }, 1000);
+    } else {
+      player.pause();
+    }
+  });
+
+  $("#play-initiator").on("tap", function () {
+    player.play();
+    $(this).toggleClass("hidden");
   });
 });

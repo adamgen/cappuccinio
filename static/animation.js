@@ -1,16 +1,17 @@
-const anim = await fetch("/clients/Text.json").then(a=>a.json())
+const anim = await fetch("/clients/Text.json").then((a) => a.json());
 
 const lottie = /** @type {import("lottie-web").default} */ (window.lottie);
 
 // TODO adjust text https://lottiefiles.github.io/lottie-docs/text/#text-follow-path
 
-const params = new URLSearchParams(window.location.search);
+// const params = new URLSearchParams(window.location.search);
+// const firstName = params.get("f") ?? "";
+// const lastName = params.get("l") ?? "";
 
-const firstName = params.get("f") ?? "";
-const lastName = params.get("l") ?? "";
+const [_, type, firstName, lastName] = window.location.pathname.split("/");
 
-anim.layers[1].t.d.k[0].s.t = firstName;
-anim.layers[2].t.d.k[0].s.t = lastName;
+anim.layers[1].t.d.k[0].s.t = decodeURIComponent(firstName);
+anim.layers[2].t.d.k[0].s.t = decodeURIComponent(lastName);
 
 delete anim.chars;
 

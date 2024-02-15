@@ -4,14 +4,23 @@ addEventListener("fetch", (event) => {
   event.respondWith(handleEvent(event));
 });
 
+/**
+ *
+ * @param event {Event}
+ * @returns {Promise<*>}
+ */
 async function handleEvent(event) {
   try {
     return await getAssetFromKV(event);
   } catch (e) {
-    let pathname = new URL(event.request.url).pathname;
-    return new Response(`"${pathname}" not found`, {
-      status: 404,
-      statusText: "not found",
+    return await getAssetFromKV(event, {
+      /**
+       * @param req {Request}
+       * @returns {Request}
+       */
+      mapRequestToAsset: (req) => {
+        return new Request(`${new URL(req.url).origin}/index.html`, req);
+      },
     });
   }
 }

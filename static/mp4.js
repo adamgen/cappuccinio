@@ -1,4 +1,8 @@
-const mp4 = "/clients/new.mp4";
+const [_, type] = window.location.pathname.split("/");
+if (type !== "b" && type !== "g") {
+  console.error(`Bad type given "${type}"`);
+}
+const mp4 = `/clients/${type}.mp4`;
 
 const videojs = /** @type {import("video.js").default} */ (window.videojs);
 

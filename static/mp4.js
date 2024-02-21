@@ -6,7 +6,8 @@ const mp4 = `/clients/${type}.mp4`;
 
 const videojs = /** @type {import("video.js").default} */ (window.videojs);
 
-/** @type {import("video.js").default} */
+// TODO fix types
+/** @type {import("video.js/dist/types/player").Player} */
 export const player = videojs(
   "my-player",
   {
@@ -36,7 +37,7 @@ player.ready(() => {
 player.src(mp4);
 
 $(() => {
-  $("#my-player").on("tap", function () {
+  $("#my-player").on("tap click", function () {
     if (player.paused()) {
       player.play();
     } else {
@@ -44,8 +45,19 @@ $(() => {
     }
   });
 
-  $("#play-initiator").on("tap", function () {
+  $("#play-initiator").on("tap click", function () {
     player.play();
-    $(this).toggleClass("hidden");
+    $("#play-initiator").addClass("hidden");
+  });
+
+  $(document).on("keydown", (e) => {
+    if (e.keyCode === 32) {
+      if (player.paused()) {
+        player.play();
+      } else {
+        player.pause();
+      }
+      $("#play-initiator").addClass("hidden");
+    }
   });
 });

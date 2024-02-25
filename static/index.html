@@ -16,44 +16,66 @@
       rel="stylesheet"
     />
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-    <link
-      rel="stylesheet"
-      href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css"
-    />
+    <script src="/jquery.mobile.custom.min.js"></script>
 
     <script src="/index.js" type="module" defer></script>
     <style>
       .vjs-big-play-button {
         display: none !important;
       }
+      .video-js.vjs-fluid,
+      .video-js.vjs-16-9,
+      .video-js.vjs-4-3,
+      video.video-js,
+      video.vjs-tech {
+        position: relative !important;
+        width: 100%;
+        height: 100% !important;
+        max-width: 100% !important;
+        padding-top: 0 !important;
+        line-height: 0;
+      }
+
+      #proportions {
+        padding-top: 56.25%;
+      }
     </style>
   </head>
   <body>
-    <div class="flex items w-screen h-screen justify-center">
-      <div class="relative w-full max-w-6xl">
-        <div class="relative">
+    <div
+      class="flex h-screen w-screen items-center justify-center overflow-hidden"
+    >
+      <div
+        class="absolute flex items-center justify-center portrait:h-[100vw] portrait:w-[100vh] portrait:rotate-90 landscape:h-full landscape:w-full"
+      >
+        <div class="relative max-h-full flex-grow">
           <video
             height="auto"
             id="my-player"
-            class="video-js w-full min-h-40"
+            class="video-js max-h-full w-full"
             controls
             webkit-playsinline
             playsinline
           ></video>
+
           <div
-            id="lottie"
-            class="absolute top-0 h-full w-full left-0 pointer-events-none"
-          ></div>
+            class="absolute flex h-full w-full items-center justify-center object-contain top-0 left-0"
+          >
+            <div
+              id="lottie"
+              class="pointer-events-none aspect-video border"
+            ></div>
+          </div>
           <div
             id="play-initiator"
-            class="bg-black opacity-50 absolute h-full w-full top-0 flex items-center justify-center text-white"
+            class="absolute top-0 flex h-full w-full items-center justify-center bg-black text-white opacity-50"
           >
             <button
-              class="bg-black rounded-full w-20 h-20 opacity-60 select-none flex items-center justify-center"
+              class="flex h-20 w-20 select-none items-center justify-center rounded-full bg-black opacity-60"
             >
               <svg
                 fill="#fff"
+                class="max-h-full"
                 height="800px"
                 width="800px"
                 xmlns="http://www.w3.org/2000/svg"
@@ -78,7 +100,6 @@
         </div>
       </div>
     </div>
-
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"
       integrity="sha512-jEnuDt6jfecCjthQAJ+ed0MTVA++5ZKmlUcmDGBv2vUI/REn6FuIdixLNnQT+vKusE2hhTk2is3cFvv5wA+Sgg=="

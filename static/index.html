@@ -43,10 +43,11 @@
   </head>
   <body>
     <div
-      class="flex h-screen w-screen items-center justify-center overflow-hidden"
+      class="absolute flex h-screen max-h-full w-screen items-center justify-center overflow-hidden"
     >
       <div
-        class="absolute flex items-center justify-center portrait:h-[100vw] portrait:w-[100vh] portrait:rotate-90 landscape:h-full landscape:w-full"
+        id="container"
+        class="absolute flex items-center justify-center overflow-hidden portrait:h-[100vw] portrait:w-[100vh] portrait:rotate-90 landscape:h-full landscape:w-full"
       >
         <div class="relative max-h-full flex-grow">
           <video
@@ -59,12 +60,9 @@
           ></video>
 
           <div
-            class="absolute flex h-full w-full items-center justify-center object-contain top-0 left-0"
+            class="pointer-events-none absolute left-0 top-0 flex h-full w-full items-center justify-center object-contain"
           >
-            <div
-              id="lottie"
-              class="pointer-events-none aspect-video border"
-            ></div>
+            <div id="lottie" class="aspect-video flex-grow border"></div>
           </div>
           <div
             id="play-initiator"

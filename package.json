@@ -2,7 +2,7 @@
   "name": "cappuccin.io",
   "scripts": {
     "dev": "wrangler dev",
-    "simulate": "wrangler dev --ip \"0.0.0.0\" --remote",
+    "simulate": "wrangler dev --ip \"0.0.0.0\"",
     "deploy": "wrangler deploy"
   },
   "packageManager": "yarn@3.6.3",

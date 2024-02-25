@@ -16,7 +16,9 @@ player.on("timeupdate", (e) => {
 });
 player.on("play", () => {
   animItem.goToAndPlay(player.currentTime() * 1000);
+  // $("#container").get(0).requestFullscreen();
 });
 player.on("pause", () => {
   animItem.goToAndStop(player.currentTime() * 1000);
+  // document.exitFullscreen();
 });

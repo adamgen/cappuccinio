@@ -26,6 +26,10 @@ export const player = videojs(
         player.exitFullscreen();
       }
     });
+
+    player.on("play", function () {
+      $("#play-initiator").addClass("hidden");
+    });
   },
 );
 window.player = player;

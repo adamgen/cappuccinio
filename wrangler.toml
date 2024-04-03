@@ -4,7 +4,7 @@ main = "cloudflare/index.js"
 compatibility_date = "2022-07-12"
 
 workers_dev = false
-route = { pattern = "demo.cappuccin.io/*", zone_name = "cappuccin.io" }
+route = { pattern = "tlv-bday.cappuccin.io/*", zone_name = "cappuccin.io" }
 
 [site]
 bucket = "./static" # Add the directory with your static assets!

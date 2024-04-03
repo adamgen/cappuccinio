@@ -6,7 +6,6 @@ const mp4 = `/clients/${type}.mp4`;
 
 const videojs = /** @type {import("video.js").default} */ (window.videojs);
 
-// TODO fix types
 /** @type {import("video.js/dist/types/player").Player} */
 export const player = videojs(
   "my-player",

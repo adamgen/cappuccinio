@@ -40,6 +40,8 @@ player.ready(() => {
 
 player.src(mp4);
 
+player.pause();
+
 $(() => {
   $("#my-player").on("tap click", function () {
     if (player.paused()) {

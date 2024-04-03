@@ -22,16 +22,15 @@ export const animItem = lottie.loadAnimation({
   container: document.getElementById("lottie"), // the dom element
   renderer: "svg",
   autoplay: false,
+  // controls: true,
   animationData: anim, // the animation data
   rendererSettings: {
     preserveAspectRatio: "xMinYMin slice", // Supports the same options as the svg element's preserveAspectRatio property
-    title: "Accessible Title", // Adds SVG title element for accessible animation title
-    description: "Accessible description.", // Adds SVG desc element for accessible long description of animation
     progressiveLoad: false, // Boolean, only svg renderer, loads dom elements when needed. Might speed up initialization for large number of elements.
     hideOnTransparent: true, //Boolean, only svg renderer, hides elements when opacity reaches 0 (defaults to true)
-    className: "some-css-class-name",
   },
 });
+animItem.setSpeed(0.9);
 
 window.animItem = animItem;
 

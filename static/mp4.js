@@ -15,7 +15,7 @@ export const player = videojs(
     fullscreenToggle: false,
     playsInline: true,
     autoplay: true,
-    controls: true,
+    controls: false,
     controlBar: {
       pictureInPictureToggle: false,
     },

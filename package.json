@@ -1,7 +1,7 @@
 {
   "name": "cappuccin.io",
   "scripts": {
-    "dev": "wrangler pages dev",
+    "dev": "wrangler pages dev static",
     "simulate": "wrangler dev --ip \"0.0.0.0\"",
     "deploy": "wrangler pages deploy static"
   },

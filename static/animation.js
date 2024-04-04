@@ -30,7 +30,6 @@ export const animItem = lottie.loadAnimation({
     hideOnTransparent: true, //Boolean, only svg renderer, hides elements when opacity reaches 0 (defaults to true)
   },
 });
-animItem.setSpeed(0.9);
 
 window.animItem = animItem;
 

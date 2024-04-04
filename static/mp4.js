@@ -11,12 +11,16 @@ export const player = videojs(
   "my-player",
   {
     fluid: true,
-    fullscreenToggle: false,
     playsInline: true,
     autoplay: true,
-    controls: false,
+    controls: true,
     controlBar: {
-      pictureInPictureToggle: false,
+      children: [
+        // "playToggle",
+        "durationDisplay",
+        "progressControl",
+        "remainingTimeDisplay",
+      ],
     },
   },
   () => {
@@ -39,9 +43,9 @@ player.ready(() => {
 
 player.src(mp4);
 
-player.pause();
-
 $(() => {
+  player.pause();
+
   $("#my-player").on("tap click", function () {
     if (player.paused()) {
       player.play();

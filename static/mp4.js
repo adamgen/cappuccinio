@@ -1,6 +1,8 @@
 const [_, type] = window.location.pathname.split("/");
 if (type !== "b" && type !== "g") {
   console.error(`Bad type given "${type}"`);
+  document.getElementById("error-box").classList.remove("hidden");
+  document.getElementById("error-message").innerHTML = "404 עמוד לא נמצא";
 }
 const mp4 = `/clients/${type}.mp4`;
 

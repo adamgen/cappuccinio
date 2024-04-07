@@ -12,6 +12,7 @@ const videojs = /** @type {import("video.js").default} */ (window.videojs);
 export const player = videojs(
   "my-player",
   {
+    bigPlayButton: true,
     fluid: true,
     playsInline: true,
     autoplay: true,
@@ -32,10 +33,6 @@ export const player = videojs(
         player.exitFullscreen();
       }
     });
-
-    player.on("play", function () {
-      $("#play-initiator").addClass("hidden");
-    });
   },
 );
 window.player = player;
@@ -47,21 +44,6 @@ player.ready(() => {
 player.src(mp4);
 
 $(() => {
-  player.pause();
-
-  $("#my-player").on("tap click", function () {
-    if (player.paused()) {
-      player.play();
-    } else {
-      player.pause();
-    }
-  });
-
-  $("#play-initiator").on("tap click", function () {
-    player.play();
-    $("#play-initiator").addClass("hidden");
-  });
-
   $(document).on("keydown", (e) => {
     if (e.keyCode === 32) {
       if (player.paused()) {
@@ -69,7 +51,6 @@ $(() => {
       } else {
         player.pause();
       }
-      $("#play-initiator").addClass("hidden");
     }
   });
 });

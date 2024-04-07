@@ -61,10 +61,13 @@
         class="absolute flex items-center justify-center overflow-hidden portrait:h-[100vw] portrait:w-[100vh] portrait:rotate-90 landscape:h-full landscape:w-full"
       >
         <div class="relative max-h-full flex-grow">
+          <!-- playsinline is essensial for it to work outside of full screen mode -->
           <video
             height="auto"
             id="my-player"
             class="video-js max-h-full w-full"
+            webkit-playsinline
+            playsinline
           ></video>
 
           <div

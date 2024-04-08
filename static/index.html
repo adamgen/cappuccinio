@@ -13,6 +13,29 @@
 
     <script src="/index.js" type="module" defer></script>
     <style>
+      .video-js .vjs-big-play-button {
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 3rem;
+        width: 4rem;
+        height: 4rem;
+        border-radius: 50%;
+        border-width: 1px;
+      }
+
+      .video-js .vjs-big-play-button .vjs-icon-placeholder {
+        position: absolute;
+      }
+      .video-js .vjs-big-play-button .vjs-icon-placeholder:before, .video-js .vjs-play-control .vjs-icon-placeholder:before, .vjs-icon-play:before{
+        line-height: 3rem;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: fit-content;
+        height: fit-content;
+      }
+
       .vjs-paused.vjs-has-started .vjs-big-play-button {
         display: block;
       }

@@ -52,14 +52,12 @@ player.ready(() => {
 
 player.src(mp4);
 
-$(() => {
-  $(document).on("keydown", (e) => {
-    if (e.keyCode === 32) {
-      if (player.paused()) {
-        player.play();
-      } else {
-        player.pause();
-      }
+document.addEventListener("keydown", (e) => {
+  if (e.code === "Space") {
+    if (player.paused()) {
+      player.play();
+    } else {
+      player.pause();
     }
-  });
+  }
 });

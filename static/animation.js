@@ -7,6 +7,7 @@ const lottie = /** @type {import("lottie-web").default} */ (window.lottie);
 
 // TODO adjust text https://lottiefiles.github.io/lottie-docs/text/#text-follow-path
 // https://airbnb.io/lottie/#/web
+// https://lottie.github.io/lottie-spec/1.0/specs/composition/#animationf
 /** @type {import("lottie-web").AnimationItem} */
 export const animItem = lottie.loadAnimation({
   container: document.getElementById("lottie"), // the dom element

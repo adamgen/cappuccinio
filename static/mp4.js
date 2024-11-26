@@ -1,16 +1,7 @@
-const [_, type] = window.location.pathname.split("/");
-if (type !== "b" && type !== "g") {
-  console.error(`Bad type given "${type}"`);
-  document.getElementById("error-box").classList.remove("hidden");
-  document.getElementById("error-message").innerHTML = "404 עמוד לא נמצא";
-}
+import { getClientRun } from "./utils.js";
 
-const isDev = window.location.host.match(/0.0.0.0(:\d{4})/) !== null;
-const client = isDev
-  ? "tlv-bday"
-  : window.location.host.replace(".cappuccin.io", "");
-
-const mp4 = `/clients/${client}/${type}.mp4`;
+const run = await getClientRun();
+const mp4 = run.getVideoUrl();
 
 const videojs = /** @type {import("video.js").default} */ (window.videojs);
 

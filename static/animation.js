@@ -1,26 +1,12 @@
-const isDev = window.location.host.match(/0.0.0.0(:\d{4})/) !== null;
-const client = isDev
-  ? "tlv-bday"
-  : window.location.host.replace(".cappuccin.io", "");
-const anim = await fetch(`/clients/${client}/Text.json`).then((a) => a.json());
+import { getClientRun } from "./utils.js";
+
+const run = await getClientRun();
+const anim = await run.getAnimation();
 
 const lottie = /** @type {import("lottie-web").default} */ (window.lottie);
 
 // TODO adjust text https://lottiefiles.github.io/lottie-docs/text/#text-follow-path
-
-// const params = new URLSearchParams(window.location.search);
-// const firstName = params.get("f") ?? "";
-// const lastName = params.get("l") ?? "";
-
-const [_, type, firstName, lastName] = window.location.pathname.split("/");
-
-anim.layers[1].t.d.k[0].s.t = firstName ? decodeURIComponent(firstName) : "";
-anim.layers[2].t.d.k[0].s.t = lastName ? decodeURIComponent(lastName) : "";
-
-delete anim.chars;
-
 // https://airbnb.io/lottie/#/web
-
 /** @type {import("lottie-web").AnimationItem} */
 export const animItem = lottie.loadAnimation({
   container: document.getElementById("lottie"), // the dom element

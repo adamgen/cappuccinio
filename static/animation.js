@@ -1,4 +1,8 @@
-const anim = await fetch("/clients/Text.json").then((a) => a.json());
+const isDev = window.location.host.match(/0.0.0.0(:\d{4})/) !== null;
+const client = isDev
+  ? "tlv-bday"
+  : window.location.host.replace(".cappuccin.io", "");
+const anim = await fetch(`/clients/${client}/Text.json`).then((a) => a.json());
 
 const lottie = /** @type {import("lottie-web").default} */ (window.lottie);
 

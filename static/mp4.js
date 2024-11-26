@@ -4,7 +4,13 @@ if (type !== "b" && type !== "g") {
   document.getElementById("error-box").classList.remove("hidden");
   document.getElementById("error-message").innerHTML = "404 עמוד לא נמצא";
 }
-const mp4 = `/clients/${type}.mp4`;
+
+const isDev = window.location.host.match(/0.0.0.0(:\d{4})/) !== null;
+const client = isDev
+  ? "tlv-bday"
+  : window.location.host.replace(".cappuccin.io", "");
+
+const mp4 = `/clients/${client}/${type}.mp4`;
 
 const videojs = /** @type {import("video.js").default} */ (window.videojs);
 

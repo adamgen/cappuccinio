@@ -92,7 +92,7 @@
           <div
             class="pointer-events-none absolute left-0 top-0 flex h-full w-full items-center justify-center"
           >
-            <div id="lottie" class="aspect-video h-full border"></div>
+            <div id="lottie"></div>
           </div>
         </div>
       </div>
@@ -115,23 +115,6 @@
       src="https://cdn.lrkt-in.com/LogRocket.min.js"
       crossorigin="anonymous"
     ></script>
-    <script>
-      if (window.LogRocket) {
-        window.LogRocket.init("cappuccinio/cappuccinio");
-
-        const [_, type, firstName, lastName] =
-          window.location.pathname.split("/");
-        if (firstName && lastName) {
-          window.LogRocket.identify(
-            JSON.stringify([type, firstName, lastName]),
-            {
-              type,
-              firstName,
-              lastName,
-            },
-          );
-        }
-      }
-    </script>
+    <script src="/stats.js"></script>
   </body>
 </html>

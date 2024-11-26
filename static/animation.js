@@ -10,8 +10,8 @@ const lottie = /** @type {import("lottie-web").default} */ (window.lottie);
 
 const [_, type, firstName, lastName] = window.location.pathname.split("/");
 
-anim.layers[1].t.d.k[0].s.t = decodeURIComponent(firstName);
-anim.layers[2].t.d.k[0].s.t = decodeURIComponent(lastName);
+anim.layers[1].t.d.k[0].s.t = firstName ? decodeURIComponent(firstName) : "";
+anim.layers[2].t.d.k[0].s.t = lastName ? decodeURIComponent(lastName) : "";
 
 delete anim.chars;
 

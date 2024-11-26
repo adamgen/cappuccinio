@@ -27,7 +27,9 @@
       .video-js .vjs-big-play-button .vjs-icon-placeholder {
         position: absolute;
       }
-      .video-js .vjs-big-play-button .vjs-icon-placeholder:before, .video-js .vjs-play-control .vjs-icon-placeholder:before, .vjs-icon-play:before{
+      .video-js .vjs-big-play-button .vjs-icon-placeholder:before,
+      .video-js .vjs-play-control .vjs-icon-placeholder:before,
+      .vjs-icon-play:before {
         line-height: 3rem;
         left: 50%;
         top: 50%;
@@ -90,7 +92,7 @@
           <div
             class="pointer-events-none absolute left-0 top-0 flex h-full w-full items-center justify-center"
           >
-            <div id="lottie" class="aspect-video border h-full"></div>
+            <div id="lottie" class="aspect-video h-full border"></div>
           </div>
         </div>
       </div>
@@ -101,9 +103,7 @@
     >
       <div id="error-message"></div>
     </div>
-    <div id="debug-box" class="hidden fixed bg-white px-2">
-      1
-    </div>
+    <div id="debug-box" class="fixed hidden bg-white px-2">1</div>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"
       integrity="sha512-jEnuDt6jfecCjthQAJ+ed0MTVA++5ZKmlUcmDGBv2vUI/REn6FuIdixLNnQT+vKusE2hhTk2is3cFvv5wA+Sgg=="
@@ -111,5 +111,23 @@
       referrerpolicy="no-referrer"
     ></script>
     <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+    <script
+      src="https://cdn.lrkt-in.com/LogRocket.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      if (window.LogRocket) {
+        window.LogRocket.init("cappuccinio/cappuccinio");
+
+        const [_, type, firstName, lastName] =
+          window.location.pathname.split("/");
+
+        window.LogRocket.identify(JSON.stringify([type, firstName, lastName]), {
+          type,
+          firstName,
+          lastName,
+        });
+      }
+    </script>
   </body>
 </html>

@@ -30,15 +30,15 @@ export const player = videojs(
         player.exitFullscreen();
       }
     });
-    player.on("touchend", function (e) {
-      if (e.target.nodeName === "VIDEO") {
-        if (player.paused()) {
-          player.play();
-        } else {
-          player.pause();
-        }
-      }
-    });
+    // player.on("touchend", function (e) {
+    //   if (e.target.nodeName === "VIDEO") {
+    //     if (player.paused()) {
+    //       player.play();
+    //     } else {
+    //       player.pause();
+    //     }
+    //   }
+    // });
   },
 );
 window.player = player;

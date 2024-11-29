@@ -13,6 +13,7 @@ export const animItem = lottie.loadAnimation({
   container: document.getElementById("lottie"), // the dom element
   renderer: "svg",
   autoplay: false,
+  loop: false,
   // controls: true,
   animationData: anim, // the animation data
   rendererSettings: {

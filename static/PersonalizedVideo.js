@@ -52,17 +52,19 @@ export class PersonalizedVideo extends LitElement {
 
   constructor() {
     super();
-    this.name = "";
-    // todo
-    //  init animation
-    //  init video
-    //  init connector
+    this._pollingActive = true;
   }
 
   async firstUpdated() {
     this._initVideo();
     this._initAnimation();
     this._syncAnimationVideo();
+  }
+
+  disconnectedCallback() {
+    this._pollingActive = false;
+    document.removeEventListener("keydown", this._handleDocumentKeydown);
+    super.disconnectedCallback();
   }
 
   render() {
@@ -206,35 +208,37 @@ export class PersonalizedVideo extends LitElement {
 
     player.src(mp4);
 
-    document.addEventListener("keydown", (e) => {
-      if (e.code === "Space") {
-        if (player.paused()) {
-          player.play();
-        } else {
-          player.pause();
-        }
-      }
-    });
+    document.addEventListener("keydown", this._handleDocumentKeydown);
   }
   _syncAnimationVideo() {
-    const poll = () => {
+    this._polling();
+  }
+
+  async _polling() {
+    while (this._pollingActive) {
       if (this.player.paused()) {
         this.animItem.goToAndStop(this.player.currentTime() * 1000);
       } else {
         this.animItem.goToAndPlay(this.player.currentTime() * 1000);
       }
-    };
-
-    const initPolling = async () => {
-      // todo make sure it's discontinued once component exits/destoryed
-      while (true) {
-        poll();
-        await new Promise((resolve) => setTimeout(resolve));
-      }
-    };
-
-    initPolling();
+      await new Promise((resolve) => setTimeout(resolve));
+    }
   }
+
+  /**
+   *
+   * @param {KeyboardEvent} e
+   * @private
+   */
+  _handleDocumentKeydown = (e) => {
+    if (e.code === "Space") {
+      if (this.player.paused()) {
+        this.player.play();
+      } else {
+        this.player.pause();
+      }
+    }
+  };
 }
 
 customElements.define("personalized-video", PersonalizedVideo);

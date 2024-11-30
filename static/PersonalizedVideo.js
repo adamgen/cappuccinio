@@ -37,6 +37,9 @@ export class PersonalizedVideo extends LitElement {
   static styles = css`
     :host {
       display: inline-block;
+      aspect-ratio: 1;
+      max-width: 100%;
+      max-height: 100%;
     }
   `;
 
@@ -75,15 +78,14 @@ export class PersonalizedVideo extends LitElement {
         rel="stylesheet"
       />
       <link href="./custom.css" rel="stylesheet" />
-
-      Open in jsfiddle Learn more
-
       <div
-        style="position: absolute; display: flex; height: 100vh; max-height: 100%; width: 100vw; align-items: center; justify-content: center; overflow: hidden; background-color: #27272a;"
+        style="position: relative; display: flex; height: ${this
+          .videoHeight}px; max-height: 100%; width: ${this
+          .videoWidth}px; max-width: 100%; align-items: center; justify-content: center; overflow: hidden; background-color: #27272a;"
       >
         <div
           id="container"
-          style="position: absolute; display: flex; height: 100vh; max-height: 100%; width: 100vw; align-items: center; justify-content: center; overflow: hidden; background-color: #27272a;"
+          style="position: absolute; display: flex; height: 100%; max-height: 100%; width: 100%; align-items: center; justify-content: center; overflow: hidden; background-color: #27272a;"
         >
           <div style="position: relative; max-height: 100%; flex-grow: 1;">
             <video
@@ -107,7 +109,7 @@ export class PersonalizedVideo extends LitElement {
       </div>
       <div
         id="error-box"
-        style="position: fixed; display: flex; visibility: hidden; height: 100vh; width: 100vw; align-items: center; justify-content: center; background-color: white; font-size: 3rem;"
+        style="position: fixed; display: flex; visibility: hidden; height: 100%; width: 100%; align-items: center; justify-content: center; background-color: white; font-size: 3rem;"
       >
         <div id="error-message"></div>
       </div>

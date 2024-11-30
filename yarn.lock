@@ -297,6 +297,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@lit-labs/ssr-dom-shim@npm:^1.2.0":
+  version: 1.2.1
+  resolution: "@lit-labs/ssr-dom-shim@npm:1.2.1"
+  checksum: 5667c44f58e16edaa257fc3ae7f752250d5250d4eb1d071b65df0f1fce0b90b42e8528787cc2673998d76d993440143a2a20c3358ce125c62df4cd193784de8d
+  languageName: node
+  linkType: hard
+
+"@lit/reactive-element@npm:^2.0.0, @lit/reactive-element@npm:^2.0.4":
+  version: 2.0.4
+  resolution: "@lit/reactive-element@npm:2.0.4"
+  dependencies:
+    "@lit-labs/ssr-dom-shim": ^1.2.0
+  checksum: 368d788d9eefdde74e77721e38c78de222dc5ec87d543e0638d0d28f7a8cf530c3d7b49aa8606efeec3f3485abbb22a43b58c2f20c1e6e7f0de266d4c6d125c4
+  languageName: node
+  linkType: hard
+
 "@npmcli/agent@npm:^2.0.0":
   version: 2.2.1
   resolution: "@npmcli/agent@npm:2.2.1"
@@ -341,6 +357,13 @@ __metadata:
   dependencies:
     undici-types: ~5.26.4
   checksum: 259d16643ba611ade617a8212e594a3ac014727457507389bbf7213971346ab052d870f1e6e2df0afd0876ecd7874f578bccb130be01e069263cfc7136ddc0c1
+  languageName: node
+  linkType: hard
+
+"@types/trusted-types@npm:^2.0.2":
+  version: 2.0.7
+  resolution: "@types/trusted-types@npm:2.0.7"
+  checksum: 8e4202766a65877efcf5d5a41b7dd458480b36195e580a3b1085ad21e948bc417d55d6f8af1fd2a7ad008015d4117d5fdfe432731157da3c68678487174e4ba3
   languageName: node
   linkType: hard
 
@@ -563,6 +586,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "cappuccin.io@workspace:."
   dependencies:
+    "@lit/reactive-element": ^2.0.0
+    lit: ^3.0.0
+    lit-element: ^4.0.0
+    lit-html: ^3.0.0
     lottie-web: ^5.12.2
     prettier: ^3.2.5
     prettier-plugin-tailwindcss: ^0.5.11
@@ -1071,6 +1098,37 @@ __metadata:
   version: 2.2.0
   resolution: "keycode@npm:2.2.0"
   checksum: cb91c2940a892f1444a41fc08339b8831445a6b095af9103e3061ea7d4bdbfc420135dcb5d9257020e35c374468bb7d4495ea9fcea54e5760196daff3c874fa4
+  languageName: node
+  linkType: hard
+
+"lit-element@npm:^4.0.0, lit-element@npm:^4.1.0":
+  version: 4.1.1
+  resolution: "lit-element@npm:4.1.1"
+  dependencies:
+    "@lit-labs/ssr-dom-shim": ^1.2.0
+    "@lit/reactive-element": ^2.0.4
+    lit-html: ^3.2.0
+  checksum: 74d0f2d6fb784b1e96f27c54d036b6eb49ca9883577db627ce9ca42b242c5a5da3ae7b5c874fe2a0559ee6134726a741ec2166a48bfee90ab91346a237f33e85
+  languageName: node
+  linkType: hard
+
+"lit-html@npm:^3.0.0, lit-html@npm:^3.2.0":
+  version: 3.2.1
+  resolution: "lit-html@npm:3.2.1"
+  dependencies:
+    "@types/trusted-types": ^2.0.2
+  checksum: 1bacd9f8b2acfe44a989c09c21f1aedbe409409196eff8d203c952c7ad034899b16d239551efa76872a3cea21883db62a5309aeefc604a1e3d4a8d36c9719e63
+  languageName: node
+  linkType: hard
+
+"lit@npm:^3.0.0":
+  version: 3.2.1
+  resolution: "lit@npm:3.2.1"
+  dependencies:
+    "@lit/reactive-element": ^2.0.4
+    lit-element: ^4.1.0
+    lit-html: ^3.2.0
+  checksum: ee22bbc53d5d639258b4a3a3d10f166adf959fd4ddb61db739d0a8328d0094a2232ffebb808fec3a645aeb166b15c03c688f75dde723524bf7b22263e078158f
   languageName: node
   linkType: hard
 

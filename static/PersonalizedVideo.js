@@ -46,8 +46,8 @@ export class PersonalizedVideo extends LitElement {
   static properties = {
     name: { type: String },
     debug: { type: Boolean },
-    videoHeight: {},
-    videoWidth: {},
+    videoHeight: { type: Number },
+    videoWidth: { type: Number },
   };
 
   constructor() {

@@ -4,7 +4,14 @@ export const client = isDev
   ? "xtra"
   : window.location.host.replace(".cappuccin.io", "");
 
-export const getClientRun = () => import(`./clients/${client}/run.js`);
+/**
+ * @param {string} key
+ * @return {Promise<{
+ *     getAnimation: () => Promise<any>;
+ *     getVideoUrl: () => string;
+ * }>}
+ */
+export const getClientRun = (key) => import(`./clients/${key}/run.js`);
 
 /**
  * @param {Partial<HTMLLinkElement> & {hrel: string; rel: string;}} props

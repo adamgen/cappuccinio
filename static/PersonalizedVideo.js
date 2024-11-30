@@ -10,11 +10,6 @@ import { addStyle, getClientRun } from "./utils.js";
 import videojs from "https://cdn.jsdelivr.net/npm/video.js@8.20.0/+esm";
 import lottie from "https://cdn.jsdelivr.net/npm/lottie-web@5.12.2/+esm";
 
-const run = await getClientRun();
-
-const anim = await run.getAnimation();
-const mp4 = run.getVideoUrl();
-
 const VIDEO_ELEMENT_ID = "cappuccinio-video-player";
 const LOTTIE_ELEMENT_ID = "cappuccinio-lottie-player";
 
@@ -44,6 +39,7 @@ export class PersonalizedVideo extends LitElement {
   `;
 
   static properties = {
+    key: { type: String },
     name: { type: String },
     debug: { type: Boolean },
     videoHeight: { type: Number },
@@ -59,6 +55,15 @@ export class PersonalizedVideo extends LitElement {
     this._initVideo();
     this._initAnimation();
     this._syncAnimationVideo();
+  }
+
+  async connectedCallback() {
+    const run = await getClientRun(this.key);
+
+    this.anim = await run.getAnimation();
+    this.mp4 = run.getVideoUrl();
+
+    super.connectedCallback();
   }
 
   disconnectedCallback() {
@@ -79,7 +84,7 @@ export class PersonalizedVideo extends LitElement {
         href="https://cdn.jsdelivr.net/npm/@videojs/themes@1/dist/city/index.css"
         rel="stylesheet"
       />
-      <link href="./custom.css" rel="stylesheet" />
+      <link href="/custom.css" rel="stylesheet" />
       <div
         style="position: relative; display: flex; height: ${this
           .videoHeight}px; max-height: 100%; width: ${this
@@ -137,7 +142,7 @@ export class PersonalizedVideo extends LitElement {
       autoplay: false,
       loop: false,
       // controls: true,
-      animationData: anim, // the animation data
+      animationData: this.anim, // the animation data
       rendererSettings: {
         preserveAspectRatio: "xMinYMin slice", // Supports the same options as the svg element's preserveAspectRatio property
         progressiveLoad: false, // Boolean, only svg renderer, loads dom elements when needed. Might speed up initialization for large number of elements.
@@ -206,7 +211,7 @@ export class PersonalizedVideo extends LitElement {
       player.tech_.off("dblclick");
     });
 
-    player.src(mp4);
+    player.src(this.mp4);
 
     document.addEventListener("keydown", this._handleDocumentKeydown);
   }

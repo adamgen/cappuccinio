@@ -1,4 +1,4 @@
-import { addLink, addStyle, client } from "../../utils.js";
+import { addLink, addStyle } from "../../utils.js";
 
 addLink({
   href: "https://fonts.googleapis.com",
@@ -22,7 +22,7 @@ addStyle({
 
 export const getAnimation = async () => {
   const rev = (s) => s.split("").reverse().join("");
-  const anim = await fetch(`/clients/${client}/t.json`).then((a) => a.json());
+  const anim = await fetch(`/clients/xtra/t.json`).then((a) => a.json());
 
   anim.assets[1].layers[0].t.d.k[0].s.t = rev(
     anim.assets[1].layers[0].t.d.k[0].s.t,
@@ -40,5 +40,5 @@ export const getAnimation = async () => {
 };
 
 export const getVideoUrl = () => {
-  return `/clients/${client}/v.mp4`;
+  return `/clients/xtra/v.mp4`;
 };

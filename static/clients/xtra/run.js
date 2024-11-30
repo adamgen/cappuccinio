@@ -17,7 +17,7 @@ addLink({
 });
 
 addStyle({
-  cssText: `* { font-family: "Arimo", sans-serif; }`,
+  cssText: `personalized-video { font-family: "Arimo", sans-serif; }`,
 });
 
 export const getAnimation = async () => {

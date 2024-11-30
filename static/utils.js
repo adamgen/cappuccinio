@@ -14,6 +14,7 @@ export function addLink(props) {
   Object.assign(lnk, props);
   document.getElementsByTagName("head")[0].appendChild(lnk);
 }
+
 /**
  * @param {Partial<HTMLStyleElement> & {cssText: string;}} props
  */
@@ -22,4 +23,13 @@ export function addStyle(props) {
   Object.assign(style, props);
   style.appendChild(document.createTextNode(props.cssText));
   document.getElementsByTagName("head")[0].appendChild(style);
+}
+
+/**
+ * @param {Partial<HTMLScriptElement> & {src: string; type?: string;}} props
+ */
+export function addScript(props) {
+  const script = document.createElement("script");
+  Object.assign(script, props);
+  document.getElementsByTagName("head")[0].appendChild(script);
 }

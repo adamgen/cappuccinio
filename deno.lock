@@ -1,0 +1,54 @@
+{
+  "version": "4",
+  "remote": {
+    "https://cdn.jsdelivr.net/npm/@babel/runtime@7.24.7/helpers/extends/+esm": "a0e6b64cddcd53f57a7fec01dcf48dbe3d5625a3a8e30f38c0722943cccd6323",
+    "https://cdn.jsdelivr.net/npm/@babel/runtime@7.25.4/helpers/extends/+esm": "7aca73504fdfe1b9c126bce65e6ca07a4374bc0c6cef52b0bbae14ff45a72d13",
+    "https://cdn.jsdelivr.net/npm/@babel/runtime@7.26.0/helpers/extends/+esm": "470b093b832c365db99f5b1c0e27047e849777f5a24131267dec91dd139a181b",
+    "https://cdn.jsdelivr.net/npm/@lit/reactive-element@2.0.4/+esm": "4418ebfdeb2a2af11ed3d4e848b1c995c7c2ca52b766736e4db1ee495195b717",
+    "https://cdn.jsdelivr.net/npm/@videojs/vhs-utils@4.1.1/es/byte-helpers/+esm": "4b66cffa5e8e6eef073e4a4e271fe056cd0aa37125e740ee8dbcc6bf77ea6dbd",
+    "https://cdn.jsdelivr.net/npm/@videojs/vhs-utils@4.1.1/es/codecs.js/+esm": "775289bd09c7b66bff49875229b702a7a6e226c7475aa183c63bccff5538b20f",
+    "https://cdn.jsdelivr.net/npm/@videojs/vhs-utils@4.1.1/es/containers/+esm": "2ddb50052dc339cabf189f05dc91ad8459cd75696a9aa48b0e5c6bdbbc602bca",
+    "https://cdn.jsdelivr.net/npm/@videojs/vhs-utils@4.1.1/es/decode-b64-to-uint8-array.js/+esm": "46d156c1508db6697548be88a4d0f272eaec4cdf7dfd5bedac69a68b481f6f79",
+    "https://cdn.jsdelivr.net/npm/@videojs/vhs-utils@4.1.1/es/decode-b64-to-uint8-array/+esm": "46d156c1508db6697548be88a4d0f272eaec4cdf7dfd5bedac69a68b481f6f79",
+    "https://cdn.jsdelivr.net/npm/@videojs/vhs-utils@4.1.1/es/id3-helpers/+esm": "bb94de5ae0dd7b76fa45c479bb20922966c240ff17549bc108919bff5d7835ee",
+    "https://cdn.jsdelivr.net/npm/@videojs/vhs-utils@4.1.1/es/media-groups/+esm": "35472e9e52c98c9683fdf2781e03a00ddec2c3bb461fe91e2b4d67fbc4c3dde6",
+    "https://cdn.jsdelivr.net/npm/@videojs/vhs-utils@4.1.1/es/media-types.js/+esm": "32fb981b28728b88e4f4bbccb0ce224f9a3138c289b267e484bdc7c1c6faa08c",
+    "https://cdn.jsdelivr.net/npm/@videojs/vhs-utils@4.1.1/es/resolve-url.js/+esm": "00aa492da98c82172540996267c51acf858d25c4ff276bb53e0f28f510c08e2d",
+    "https://cdn.jsdelivr.net/npm/@videojs/vhs-utils@4.1.1/es/resolve-url/+esm": "00aa492da98c82172540996267c51acf858d25c4ff276bb53e0f28f510c08e2d",
+    "https://cdn.jsdelivr.net/npm/@videojs/vhs-utils@4.1.1/es/stream.js/+esm": "de59a0484cda8779da3193e2e6fc39137076a1727ecc7864a53a06cee4f5eed3",
+    "https://cdn.jsdelivr.net/npm/@videojs/xhr@2.7.0/+esm": "7dfefa4f52a18dc430216b83fcca181e85d1933034aa05550295084e472015cf",
+    "https://cdn.jsdelivr.net/npm/@xmldom/xmldom@0.8.10/+esm": "05a34eea67bbc558f3c8f72c651188b5cd2c2e88b07b05942653554b2ad6aadd",
+    "https://cdn.jsdelivr.net/npm/global@4.4.0/document/+esm": "e9b024c5ec8573ef6ce17bde857201fd3e6706bac6933749743f0d8d432f2975",
+    "https://cdn.jsdelivr.net/npm/global@4.4.0/window/+esm": "3c318d375fa51ce916a03ab11d4e5f530e936854600e3aaa6e9b5bd3cb143824",
+    "https://cdn.jsdelivr.net/npm/is-function@1.0.2/+esm": "5b96cc22e8a52def767a49b95e34131104357d79e9fbd23194bb50a8b3873614",
+    "https://cdn.jsdelivr.net/npm/lit-element@4.1.1/lit-element.js/+esm": "ef93873c6ca0a24e0cb4ad3e411f73f3218cd5fb5c5fb7a59a2107b7284310f4",
+    "https://cdn.jsdelivr.net/npm/lit-html@3.2.1/+esm": "4982098ea076ccee961e42370bf56bc235d7325f3fbee79ae67614e4a22bb411",
+    "https://cdn.jsdelivr.net/npm/lit-html@3.2.1/is-server.js/+esm": "aad1c93ef534a83a26603f6c953a1cafc9267d069f4adf1304f0af59e9fe4c66",
+    "https://cdn.jsdelivr.net/npm/lit@3.2.1/+esm": "449160d192bba9ecba56983d1ba25de9fcb09cc7e54a2ffeb494a50698e5618c",
+    "https://cdn.jsdelivr.net/npm/lottie-web@5.12.2/+esm": "0e21bc7ab802cc7335c62c49862300ddecf8e89aece82e7bdc9149fbd2a4e4d5",
+    "https://cdn.jsdelivr.net/npm/m3u8-parser@7.2.0/+esm": "b9013ef8e46ea35d7ec9c2b13111e22fa94c37668bdc41d50ff32d7976b074ae",
+    "https://cdn.jsdelivr.net/npm/mpd-parser@1.3.1/+esm": "35925c76acd412ceada76a3bd09e5b3596104510f996d1c99040159d6ed2bbc1",
+    "https://cdn.jsdelivr.net/npm/mux.js@7.1.0/lib/tools/parse-sidx/+esm": "e884cc90d49de6e79f04291d8d3a164d8d02b73deb584247e11d918957ae4060",
+    "https://cdn.jsdelivr.net/npm/mux.js@7.1.0/lib/utils/clock/+esm": "bd6aa5f47505c017ed9c9fdcea02a2618f4d728a2c2369dbe0eeaa9cbe422c8b",
+    "https://cdn.jsdelivr.net/npm/video.js@8.20.0/+esm": "d75987ccc111125828a6593739ac113d212a9f80c4bf12803e0c74d1a03983a3",
+    "https://cdn.jsdelivr.net/npm/videojs-vtt.js@0.15.5/+esm": "d58516e7c0f17711bc2651f3da66efa0152abf8430fff29973a12adc334c1d55"
+  },
+  "workspace": {
+    "dependencies": [
+      "jsr:@std/assert@1"
+    ],
+    "packageJson": {
+      "dependencies": [
+        "npm:@lit/reactive-element@2",
+        "npm:lit-element@4",
+        "npm:lit-html@3",
+        "npm:lit@3",
+        "npm:lottie-web@^5.12.2",
+        "npm:prettier-plugin-tailwindcss@~0.5.11",
+        "npm:prettier@^3.2.5",
+        "npm:video.js@^8.10.0",
+        "npm:wrangler@^3.91.0"
+      ]
+    }
+  }
+}

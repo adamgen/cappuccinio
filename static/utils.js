@@ -40,3 +40,17 @@ export function addScript(props) {
   Object.assign(script, props);
   document.getElementsByTagName("head")[0].appendChild(script);
 }
+
+/**
+ * @param {string} imageUrl
+ */
+export const getImageDimensions = async (imageUrl) => {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => {
+      resolve({ width: img.width, height: img.height });
+    };
+    img.onerror = reject;
+    img.src = imageUrl;
+  });
+};

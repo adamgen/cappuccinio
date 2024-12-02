@@ -44,6 +44,9 @@ export class PersonalizedVideo extends LitElement {
     debug: { type: Boolean },
     videoHeight: { type: Number },
     videoWidth: { type: Number },
+    payload: {
+      type: Object,
+    },
   };
 
   constructor() {
@@ -59,8 +62,7 @@ export class PersonalizedVideo extends LitElement {
 
   async connectedCallback() {
     const run = await getClientRun(this.key);
-
-    this.anim = await run.getAnimation();
+    this.anim = await run.getAnimation(this.payload);
     this.mp4 = run.getVideoUrl();
 
     super.connectedCallback();

@@ -1,16 +1,19 @@
-export const getAnimation = async () => {
-  const anim = await fetch(`/clients/tlv-bday/Text.json`).then((a) => a.json());
+export const getAnimation = async (payload) => {
+  const anim = await fetch(`/clients/tlv-bday/t.json`).then((a) => a.json());
 
-  const [_, type, firstName, lastName] = window.location.pathname.split("/");
-  anim.layers[1].t.d.k[0].s.t = firstName ? decodeURIComponent(firstName) : "";
-  anim.layers[2].t.d.k[0].s.t = lastName ? decodeURIComponent(lastName) : "";
+  anim.layers[1].t.d.k[0].s.t = payload.firstName;
+  anim.layers[2].t.d.k[0].s.t = payload.lastName;
   delete anim.chars;
 
   return anim;
 };
 
-export const getVideoUrl = () => {
+export const getVideoUrl = (payload) => {
   const [_, type] = window.location.pathname.split("/");
 
-  return `/clients/tlv-bday/${type}.mp4`;
+  if (payload.type === "g") {
+    return "https://customer-m17spzblvpq4qzi0.cloudflarestream.com/844fe559a8fdeb54ece23a1f7962e77d/manifest/video.m3u8";
+  } else if (payload.type === "b") {
+    return "https://customer-m17spzblvpq4qzi0.cloudflarestream.com/e347f1748c56624dcbf3ff6c526e959a/manifest/video.m3u8";
+  }
 };

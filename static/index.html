@@ -14,13 +14,25 @@
       "
     >
       <personalized-video
-        key="xtra"
+        id="my-personalized-video"
+        key="tlv-bday"
         videoHeight="1080"
         videoWidth="1080"
-        payload='{"name": "ישראל ישראלי", "companyName": "משפחת אסותא", "imageUrl": "https://www.teva.co.il/globalassets/scs-branded-images/generic-images/teva-logo-180x6421.png"}'
+        debug
+        payload='{"firstName": "רבקה", "lastName": "רבקאלי", "type": "g"}'
         style="max-width: 100%; max-height: 100%; aspect-ratio: 1;"
       ></personalized-video>
+<!--   tlv   -->
+<!--        payload='{"name": "ישראל ישראלי", "type": "b"}'-->
+<!--        payload='{"firstName": "רבקה", "lastName": "רבקאלי", "type": "g"}'-->
+<!--   xtra   -->
+<!--        payload='{"name": "ישראל ישראלי", "companyName": "משפחת טבע", "imageUrl": "https://www.teva.co.il/globalassets/scs-branded-images/generic-images/teva-logo-180x6421.png"}'-->
+<!--        payload='{"name": "ישראל ישראלי", "companyName": "משפחת אייבורי", "imageUrl": "https://www.ivory.co.il/images/header/Logo_ivory_small.svg"}'-->
+<!--        payload='{"name": "ישראל ישראלי", "companyName": "משפחת אסותא", "imageUrl": "https://www.assuta.co.il/images/assuta-logo.svg"}'-->
     </div>
+    <script>
+      document.getElementById("xtra-custom-video").payload = {}
+    </script>
     <script
       src="https://cdn.lrkt-in.com/LogRocket.min.js"
       crossorigin="anonymous"

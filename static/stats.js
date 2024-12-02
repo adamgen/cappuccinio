@@ -1,4 +1,4 @@
-import { isDev } from "./utils.js";
+import { isDev } from "./src/utils.js";
 
 if (window.LogRocket && !isDev) {
   window.LogRocket.init("cappuccinio/cappuccinio");

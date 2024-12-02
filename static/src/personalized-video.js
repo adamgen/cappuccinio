@@ -87,7 +87,7 @@ export class PersonalizedVideo extends LitElement {
         href="https://cdn.jsdelivr.net/npm/@videojs/themes@1/dist/city/index.css"
         rel="stylesheet"
       />
-      <link href="/custom.css" rel="stylesheet" />
+      <link href="/src/custom.css" rel="stylesheet" />
       <div style="position: relative;">
         <video
           height="${this.videoHeight}"

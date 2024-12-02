@@ -1,5 +1,7 @@
 export const getAnimation = async (payload) => {
-  const anim = await fetch(`/clients/tlv-bday/t.json`).then((a) => a.json());
+  const anim = await fetch(`/src/clients/tlv-bday/t.json`).then((a) =>
+    a.json(),
+  );
 
   anim.layers[1].t.d.k[0].s.t = payload.firstName;
   anim.layers[2].t.d.k[0].s.t = payload.lastName;

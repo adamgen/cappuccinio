@@ -1,7 +1,7 @@
 <html>
   <head>
     <title>Happy Birthday!</title>
-    <script type="module" src="/personalized-video.js"></script>
+    <script type="module" src="/src/personalized-video.js"></script>
   </head>
   <body style="margin: 0">
     <div
@@ -15,11 +15,11 @@
     >
       <personalized-video
         id="my-personalized-video"
-        key="tlv-bday"
+        key="xtra"
         videoHeight="1080"
         videoWidth="1080"
         debug
-        payload='{"firstName": "רבקה", "lastName": "רבקאלי", "type": "g"}'
+        payload='{"name": "ישראל ישראלי", "companyName": "משפחת אייבורי", "imageUrl": "https://www.ivory.co.il/images/header/Logo_ivory_small.svg"}'
         style="max-width: 100%; max-height: 100%; aspect-ratio: 1;"
       ></personalized-video>
 <!--   tlv   -->
@@ -30,13 +30,13 @@
 <!--        payload='{"name": "ישראל ישראלי", "companyName": "משפחת אייבורי", "imageUrl": "https://www.ivory.co.il/images/header/Logo_ivory_small.svg"}'-->
 <!--        payload='{"name": "ישראל ישראלי", "companyName": "משפחת אסותא", "imageUrl": "https://www.assuta.co.il/images/assuta-logo.svg"}'-->
     </div>
-    <script>
-      document.getElementById("xtra-custom-video").payload = {}
-    </script>
-    <script
-      src="https://cdn.lrkt-in.com/LogRocket.min.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="/stats.js" type="module"></script>
+<!--    <script>-->
+<!--      document.getElementById("xtra-custom-video").payload = {}-->
+<!--    </script>-->
+<!--    <script-->
+<!--      src="https://cdn.lrkt-in.com/LogRocket.min.js"-->
+<!--      crossorigin="anonymous"-->
+<!--    ></script>-->
+<!--    <script src="/stats.js" type="module"></script>-->
   </body>
 </html>

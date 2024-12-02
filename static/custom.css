@@ -32,7 +32,8 @@
 .video-js.vjs-16-9,
 .video-js.vjs-4-3,
 video.video-js,
-video.vjs-tech {
+video.vjs-tech,
+.video-js .vjs-tech{
   position: relative !important;
   width: 100%;
   height: 100% !important;

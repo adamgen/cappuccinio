@@ -40,5 +40,5 @@ export const getAnimation = async () => {
 };
 
 export const getVideoUrl = () => {
-  return `/clients/xtra/v.mp4`;
+  return `https://customer-m17spzblvpq4qzi0.cloudflarestream.com/68ece500171636173395469b88486b7f/manifest/video.m3u8`;
 };

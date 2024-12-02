@@ -33,9 +33,8 @@ export class PersonalizedVideo extends LitElement {
   static styles = css`
     :host {
       display: inline-block;
-      aspect-ratio: 1;
-      max-width: 100%;
-      max-height: 100%;
+      width: fit-content;
+      height: fit-content;
     }
   `;
 
@@ -75,6 +74,7 @@ export class PersonalizedVideo extends LitElement {
 
   render() {
     const dbgAnimationStyle = this.debug ? "border: 2px dotted red;" : "";
+    const dbgVideoStyle = this.debug ? "border: 2px dotted blue;" : "";
     const aspectRatio = this.videoWidth / this.videoHeight;
     return html`
       <link
@@ -86,33 +86,24 @@ export class PersonalizedVideo extends LitElement {
         rel="stylesheet"
       />
       <link href="/custom.css" rel="stylesheet" />
-      <div
-        style="position: relative; display: flex; height: ${this
-          .videoHeight}px; max-height: 100%; width: ${this
-          .videoWidth}px; max-width: 100%; align-items: center; justify-content: center; overflow: hidden; background-color: #27272a;"
-      >
+      <div style="position: relative;">
+        <video
+          height="${this.videoHeight}"
+          width="${this.videoWidth}"
+          id="${VIDEO_ELEMENT_ID}"
+          class="video-js"
+          style="${dbgVideoStyle}; height: ${this.videoHeight}px; width: ${this
+            .videoWidth}px; max-height: 100%;"
+          webkit-playsinline
+          playsinline
+        ></video>
         <div
-          id="container"
-          style="position: absolute; display: flex; height: 100%; max-height: 100%; width: 100%; align-items: center; justify-content: center; overflow: hidden; background-color: #27272a;"
+          style="pointer-events: none; position: absolute; left: 0; top: 0; display: flex; height: 100%; width: 100%; align-items: center; justify-content: center;"
         >
-          <div style="position: relative; max-height: 100%; flex-grow: 1;">
-            <video
-              height="auto"
-              id="${VIDEO_ELEMENT_ID}"
-              class="video-js"
-              style="max-height: 100%; width: 100%;"
-              webkit-playsinline
-              playsinline
-            ></video>
-            <div
-              style="pointer-events: none; position: absolute; left: 0; top: 0; display: flex; height: 100%; width: 100%; align-items: center; justify-content: center;"
-            >
-              <div
-                id="${LOTTIE_ELEMENT_ID}"
-                style="${dbgAnimationStyle}; aspect-ratio: ${aspectRatio}; max-height: 100% max-width: 100%"
-              ></div>
-            </div>
-          </div>
+          <div
+            id="${LOTTIE_ELEMENT_ID}"
+            style="${dbgAnimationStyle}; aspect-ratio: ${aspectRatio}; max-height: 100% max-width: 100%"
+          ></div>
         </div>
       </div>
       <div
@@ -176,8 +167,8 @@ export class PersonalizedVideo extends LitElement {
       },
       () => {
         player.on("loadeddata", () => {
-          this.videoHeight = player.videoHeight();
-          this.videoWidth = player.videoWidth();
+          this.videoHeight = this.videoHeight ?? player.videoHeight();
+          this.videoWidth = this.videoWidth ?? player.videoWidth();
         });
         player.on("fullscreenchange", function () {
           if (player.isFullscreen()) {

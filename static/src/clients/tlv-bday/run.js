@@ -1,6 +1,6 @@
-export const getAnimation = async (payload) => {
-  const anim = await fetch(`/clients/tlv-bday/t.json`).then((a) => a.json());
+import anim from "./t.js";
 
+export const getAnimation = async (payload) => {
   anim.layers[1].t.d.k[0].s.t = payload.firstName;
   anim.layers[2].t.d.k[0].s.t = payload.lastName;
   delete anim.chars;

@@ -1,9 +1,5 @@
 export const isDev = window.location.host.match(/0.0.0.0(:\d{4})/) !== null;
 
-export const client = isDev
-  ? "xtra"
-  : window.location.host.replace(".cappuccin.io", "");
-
 /**
  * @param {string} key
  * @return {Promise<{

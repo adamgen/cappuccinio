@@ -1,3 +1,4 @@
+import anim from "./t.js";
 import { addLink, addStyle, getImageDimensions } from "../../utils.js";
 
 addLink({
@@ -22,7 +23,6 @@ addStyle({
 
 export const getAnimation = async (payload) => {
   const rev = (s) => s.split("").reverse().join("");
-  const anim = await fetch(`/clients/xtra/t.json`).then((a) => a.json());
 
   console.assert(
     typeof payload.name === "string",

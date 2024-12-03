@@ -47,8 +47,10 @@ export const getAnimation = async (payload) => {
   anim.assets[0].p = payload.imageUrl;
   anim.assets[0].w = fullWidth;
   anim.assets[0].h = imageSize.height * ratio;
-  anim.assets[1].layers[0].t.d.k[0].s.t = rev(payload.name);
-  anim.assets[2].layers[1].t.d.k[0].s.t = rev(payload.companyName);
+  anim.assets[1].layers[0].t.d.k[0].s.t = rev(decodeURIComponent(payload.name));
+  anim.assets[2].layers[1].t.d.k[0].s.t = rev(
+    decodeURIComponent(payload.companyName),
+  );
 
   return anim;
 };

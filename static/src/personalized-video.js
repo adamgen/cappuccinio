@@ -95,7 +95,7 @@ export class PersonalizedVideo extends LitElement {
           id="${VIDEO_ELEMENT_ID}"
           class="video-js"
           style="${dbgVideoStyle}; height: ${this.videoHeight}px; width: ${this
-            .videoWidth}px; max-height: 100%;"
+            .videoWidth}px; max-height: 100%; max-width: 100%;"
           webkit-playsinline
           playsinline
         ></video>

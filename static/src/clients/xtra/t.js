@@ -7734,7 +7734,8 @@ export default {
     list: [
       {
         origin: 0,
-        fPath: "",
+        fPath:
+          "https://fonts.gstatic.com/s/arimo/v29/P5sMzZCDf9_T_10UxCFuj5-v6dg.woff2",
         fClass: "",
         fFamily: "Arimo",
         fWeight: "",
@@ -7744,7 +7745,8 @@ export default {
       },
       {
         origin: 0,
-        fPath: "",
+        fPath:
+          "https://fonts.gstatic.com/s/arimo/v29/P5sMzZCDf9_T_10UxCFuj5-v6dg.woff2",
         fClass: "",
         fFamily: "Arimo",
         fWeight: "",

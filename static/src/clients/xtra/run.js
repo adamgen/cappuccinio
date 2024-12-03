@@ -1,25 +1,5 @@
 import anim from "./t.js";
-import { addLink, addStyle, getImageDimensions } from "../../utils.js";
-
-addLink({
-  href: "https://fonts.googleapis.com",
-  rel: "preconnect",
-});
-
-addLink({
-  href: "https://fonts.gstatic.com",
-  rel: "preconnect",
-  crossorigin: true,
-});
-
-addLink({
-  href: "https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap",
-  rel: "stylesheet",
-});
-
-addStyle({
-  cssText: `personalized-video { font-family: "Arimo", sans-serif; }`,
-});
+import { getImageDimensions } from "../../utils.js";
 
 export const getAnimation = async (payload) => {
   const rev = (s) => s.split("").reverse().join("");

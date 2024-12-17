@@ -36,5 +36,5 @@ export const getAnimation = async (payload) => {
 };
 
 export const getVideoUrl = () => {
-  return `https://customer-m17spzblvpq4qzi0.cloudflarestream.com/e3210cdf5f9b3db38d43faefc2ffa15c/manifest/video.m3u8`;
+  return `https://customer-m17spzblvpq4qzi0.cloudflarestream.com/b3b71f268e76cbd6042058893b540be4/manifest/video.m3u8`;
 };

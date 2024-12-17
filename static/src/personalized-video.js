@@ -161,6 +161,7 @@ export class PersonalizedVideo extends LitElement {
           playsinline
         ></video>
         <div
+          dir="ltr"
           style="pointer-events: none; position: absolute; left: 0; top: 0; display: flex; height: 100%; width: 100%; align-items: center; justify-content: center;"
         >
           <div

@@ -1,0 +1,16 @@
+#!/bin/bash
+cd "$(dirname "$0")" || exit
+
+bump(){
+  cd ../static/src || exit 1
+  local type=$1
+
+  echo $type
+  if [ "$type" == "pre" ]; then
+    npm version prerelease --preid alpha
+  fi
+}
+
+cmd=$1
+shift
+$cmd "$@"

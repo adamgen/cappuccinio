@@ -112,6 +112,7 @@ export class PersonalizedVideo extends LitElement {
     dbg: { type: Boolean },
     isLoading: { type: Boolean },
     placeholderImage: { type: String },
+    videoUrl: { type: String },
   };
 
   constructor() {
@@ -130,7 +131,8 @@ export class PersonalizedVideo extends LitElement {
   async connectedCallback() {
     const run = await getClientRun(this.key);
     this.anim = await run.getAnimation(this.payload);
-    this.mp4 = decodeURIComponent(this.payload.videoUrl);
+    this.mp4 = decodeURIComponent(this.videoUrl);
+    console.log(this.mp4);
 
     super.connectedCallback();
   }

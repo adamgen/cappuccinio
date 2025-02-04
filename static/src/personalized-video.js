@@ -125,7 +125,7 @@ export class PersonalizedVideo extends LitElement {
   async connectedCallback() {
     const run = await getClientRun(this.key);
     this.anim = await run.getAnimation(this.payload);
-    this.mp4 = this.payload.videoUrl;
+    this.mp4 = decodeURIComponent(this.payload.videoUrl);
 
     super.connectedCallback();
   }

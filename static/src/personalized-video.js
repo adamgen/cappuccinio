@@ -109,16 +109,21 @@ export class PersonalizedVideo extends LitElement {
     payload: {
       type: Object,
     },
+    dbg: { type: Boolean },
+    isLoading: { type: Boolean },
+    placeholderImage: { type: String },
   };
 
   constructor() {
     super();
     this._pollingActive = true;
+    this.isLoading = true;
   }
 
   async firstUpdated() {
     this._initVideo();
-    this._initAnimation();
+    await this._initAnimation();
+    this.isLoading = false;
     this._syncAnimationVideo();
   }
 
@@ -140,6 +145,42 @@ export class PersonalizedVideo extends LitElement {
     const dbgAnimationStyle = this.debug ? "border: 2px dotted red;" : "";
     const dbgVideoStyle = this.debug ? "border: 2px dotted blue;" : "";
     const aspectRatio = this.videoWidth / this.videoHeight;
+    const background = this.placeholderImage
+      ? `background-image: url(${this.placeholderImage}); background-repeat: no-repeat; background-size: contain; background-position: center center;`
+      : "";
+    const loader = html`<div
+      style="position: absolute; width: 100%; height: 100%; top: 0; background-color: #fff; ${background}"
+    >
+      <svg
+        version="1.1"
+        id="L9"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        x="0px"
+        y="0px"
+        viewBox="0 0 100 100"
+        enable-background="new 0 0 0 0"
+        xml:space="preserve"
+        style="width: 100px;height: 100px;margin: 20px;display:inline-block; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%)"
+      >
+        <path
+          fill="#fff"
+          d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50"
+          stroke="#000"
+        >
+          <animateTransform
+            attributeName="transform"
+            attributeType="XML"
+            type="rotate"
+            dur="1s"
+            from="0 50 50"
+            to="360 50 50"
+            repeatCount="indefinite"
+          />
+        </path>
+      </svg>
+    </div>`;
+
     return html`
       <link
         href="https://cdn.jsdelivr.net/npm/video.js@8.20.0/dist/video-js.min.css"
@@ -169,18 +210,13 @@ export class PersonalizedVideo extends LitElement {
             style="${dbgAnimationStyle}; aspect-ratio: ${aspectRatio}; max-height: 100% max-width: 100%"
           ></div>
         </div>
+        ${this.isLoading ? loader : ""} ${this.dbg}
       </div>
       <div
         id="error-box"
-        style="position: fixed; display: flex; visibility: hidden; height: 100%; width: 100%; align-items: center; justify-content: center; background-color: white; font-size: 3rem;"
+        style="position: fixed; display: flex; height: 100%; width: 100%; align-items: center; justify-content: center; background-color: white; font-size: 3rem;"
       >
-        <div id="error-message"></div>
-      </div>
-      <div
-        id="debug-box"
-        style="position: fixed; display: none; background-color: white; padding-left: 0.5rem; padding-right: 0.5rem;"
-      >
-        1
+        <div id="error-message">er</div>
       </div>
     `;
   }
@@ -205,6 +241,14 @@ export class PersonalizedVideo extends LitElement {
         hideOnTransparent: true, //Boolean, only svg renderer, hides elements when opacity reaches 0 (defaults to true)
       },
     });
+
+    const events = ["DOMLoaded"];
+    return Promise.all(
+      events.map(
+        (e) =>
+          new Promise((resolve) => this.animItem.addEventListener(e, resolve)),
+      ),
+    );
   }
   _initVideo() {
     const playerElement = this.shadowRoot.getElementById(VIDEO_ELEMENT_ID);
@@ -216,7 +260,7 @@ export class PersonalizedVideo extends LitElement {
         bigPlayButton: true,
         fluid: true,
         playsInline: true,
-        autoplay: true,
+        autoplay: false,
         controls: true,
         doubleClick: false,
         fullscreenToggle: false,
@@ -277,10 +321,11 @@ export class PersonalizedVideo extends LitElement {
 
   async _polling() {
     while (this._pollingActive) {
+      const time = Math.round(this.player.currentTime() * 1000);
       if (this.player.paused()) {
-        this.animItem.goToAndStop(this.player.currentTime() * 1000);
+        this.animItem.goToAndStop(time);
       } else {
-        this.animItem.goToAndPlay(this.player.currentTime() * 1000);
+        this.animItem.goToAndPlay(time);
       }
       await new Promise((resolve) => setTimeout(resolve));
     }

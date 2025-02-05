@@ -214,12 +214,6 @@ export class PersonalizedVideo extends LitElement {
         </div>
         ${this.isLoading ? loader : ""} ${this.dbg}
       </div>
-      <div
-        id="error-box"
-        style="position: fixed; display: flex; height: 100%; width: 100%; align-items: center; justify-content: center; background-color: white; font-size: 3rem;"
-      >
-        <div id="error-message">er</div>
-      </div>
     `;
   }
 

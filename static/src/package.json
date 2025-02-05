@@ -3,8 +3,11 @@
   "version": "1.0.0-alpha.13",
   "main": "personalized-video.js",
   "private": false,
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "scripts": {},
+  "dependencies": {
+    "lit": "^3.2.1",
+    "video.js": "^8.20.0",
+    "lottie-web": "^5.12.2"
   },
   "author": "",
   "license": "UNLICENCED",

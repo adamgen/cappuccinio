@@ -1,15 +1,9 @@
 // @ts-check
-import {
-  LitElement,
-  html,
-  css,
-} from "https://cdn.jsdelivr.net/npm/lit@3.2.1/+esm";
 
+import { lottie, videojs, litElement } from "./deps.js";
 import { addStyle, getClientRun } from "./utils.js";
 
-/** @type {import("video.js").default} */
-import videojs from "https://cdn.jsdelivr.net/npm/video.js@8.20.0/+esm";
-import lottie from "https://cdn.jsdelivr.net/npm/lottie-web@5.12.2/+esm";
+const { LitElement, html, css } = litElement;
 
 const VIDEO_ELEMENT_ID = "cappuccinio-video-player";
 const LOTTIE_ELEMENT_ID = "cappuccinio-lottie-player";

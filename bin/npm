@@ -8,6 +8,10 @@ bump(){
   if [ "$type" == "pre" ]; then
     npm version prerelease --preid alpha
   fi
+
+  if [ "$type" == "pre-t" ]; then
+    npm version prerelease --preid alpha-t
+  fi
 }
 
 publish(){

@@ -1,5 +1,7 @@
 export const isDev = window.location.host.match(/0.0.0.0(:\d{4})/) !== null;
 
+const clients = import.meta.glob("./clients/*/run.js");
+
 /**
  * @param {string} key
  * @return {Promise<{
@@ -7,7 +9,7 @@ export const isDev = window.location.host.match(/0.0.0.0(:\d{4})/) !== null;
  *     getVideoUrl: () => string;
  * }>}
  */
-export const getClientRun = (key) => import(`./clients/${key}/run.js`);
+export const getClientRun = (key) => clients[`./clients/${key}/run.js`](); // import(`./clients/${key}/run.js`);
 
 /**
  * @param {Partial<HTMLLinkElement> & {hrel: string; rel: string;}} props

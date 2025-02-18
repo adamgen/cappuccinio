@@ -12,7 +12,8 @@
     "lit-element": "^4.0.0",
     "lit-html": "^3.0.0",
     "lottie-web": "^5.12.2",
-    "video.js": "^8.10.0"
+    "video.js": "^8.10.0",
+    "vite": "^6.1.0"
   },
   "devDependencies": {
     "prettier": "^3.2.5",

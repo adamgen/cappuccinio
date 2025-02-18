@@ -3,7 +3,8 @@
   "scripts": {
     "dev": "wrangler pages dev static --ip '0.0.0.0'",
     "simulate": "wrangler dev --ip \"0.0.0.0\"",
-    "deploy": "wrangler pages deploy static"
+    "deploy": "wrangler pages deploy static",
+    "vite": "vite static"
   },
   "packageManager": "yarn@3.6.3",
   "dependencies": {

@@ -8,9 +8,22 @@ The project was inteded to run with lit with no need for a build step, one of ou
 - [ ] Consider https://stackoverflow.com/questions/63121593/how-can-i-publish-an-npm-module-with-both-commonjs-and-es6-versions
 - [ ] Consider `Conditional exports` https://nodejs.org/api/packages.html#conditional-exports
 
+## Release to npm
+
+Bump client version
+
+```
+bash ./bin/npm bump xtra
+```
+
+Publish
+
+```
+bash ./bin/npm publish
+```
+
 ## Pack a zip
 
-Run 
 
 ```
 cd static/src 

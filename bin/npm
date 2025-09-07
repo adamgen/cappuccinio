@@ -5,13 +5,7 @@ bump(){
   cd ../static/src || exit 1
   local type=$1
 
-  if [ "$type" == "pre" ]; then
-    npm version prerelease --preid alpha
-  fi
-
-  if [ "$type" == "pre-t" ]; then
-    npm version prerelease --preid alpha-t
-  fi
+  npm version prerelease --preid "$type"
 }
 
 publish(){

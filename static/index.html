@@ -13,16 +13,23 @@
         align-items: center;
       "
     >
+    <!-- 
+      encodeURIComponent("אבי אברהמי")
+      %D7%90%D7%91%D7%99%20%D7%90%D7%91%D7%A8%D7%94%D7%9E%D7%99
+
+      encodeURIComponent("דיסני")
+      %D7%93%D7%99%D7%A1%D7%A0%D7%99
+    -->
       <personalized-video
         id="my-personalized-video"
         key="xtra"
         videoHeight="1080"
         videoWidth="1080"
         debug
-        payload='{"name": "ישראל ישראלי", "companyName": "משפחת אייבורי", "imageUrl": "https://www.ivory.co.il/images/header/Logo_ivory_small.svg"}'
+        payload='{"name": "%D7%90%D7%91%D7%99%20%D7%90%D7%91%D7%A8%D7%94%D7%9E%D7%99", "companyName": "%D7%93%D7%99%D7%A1%D7%A0%D7%99", "imageUrl": "https://www.ivory.co.il/images/header/Logo_ivory_small.svg"}'
         style="max-width: 100%; max-height: 100%; aspect-ratio: 1;"
         placeholderImage="https://gifts.xgiftcard.co.il//uploads/siteSetting/2024/08/1-main_logo-a7b9ff21.png"
-        videoUrl="https://customer-m17spzblvpq4qzi0.cloudflarestream.com/8052ab55f8cec805d9538905d3a68d1e/manifest/video.m3u8"
+        videoUrl="https://customer-m17spzblvpq4qzi0.cloudflarestream.com/edea321628f421c3d2f5373cfb65244c/manifest/video.m3u8"
       ></personalized-video>
 <!--   tlv   -->
 <!--        payload='{"name": "ישראל ישראלי", "type": "b"}'-->

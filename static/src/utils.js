@@ -6,7 +6,6 @@ const clients = import.meta.glob("./clients/*/run.js");
  * @param {string} key
  * @return {Promise<{
  *     getAnimation: () => Promise<any>;
- *     getVideoUrl: () => string;
  * }>}
  */
 export const getClientRun = (key) => clients[`./clients/${key}/run.js`](); // import(`./clients/${key}/run.js`);

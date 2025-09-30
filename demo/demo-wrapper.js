@@ -402,7 +402,6 @@ export class DemoWrapper extends LitElement {
                         key="xtra"
                         videoHeight="1080"
                         videoWidth="1080"
-                        debug
                         .payload=${this.getVideoPayload()}
                         placeholderImage="https://gifts.xgiftcard.co.il//uploads/siteSetting/2024/08/1-main_logo-a7b9ff21.png"
                         videoUrl="https://customer-m17spzblvpq4qzi0.cloudflarestream.com/edea321628f421c3d2f5373cfb65244c/manifest/video.m3u8"

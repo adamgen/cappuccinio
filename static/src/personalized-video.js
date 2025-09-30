@@ -113,6 +113,7 @@ export class PersonalizedVideo extends LitElement {
     super();
     this._pollingActive = true;
     this.isLoading = true;
+    this._previousVideoUrl = null;
   }
 
   async firstUpdated() {
@@ -123,18 +124,83 @@ export class PersonalizedVideo extends LitElement {
   }
 
   async connectedCallback() {
+    super.connectedCallback();
+    await this._updateVideoAndAnimation();
+  }
+
+  async _updateVideoAndAnimation() {
+    if (!this.key || !this.videoUrl) return;
+    
     const run = await getClientRun(this.key);
     this.anim = await run.getAnimation(this.payload);
-    this.mp4 = decodeURIComponent(this.videoUrl);
-    console.log(this.mp4);
-
-    super.connectedCallback();
+    const newVideoUrl = decodeURIComponent(this.videoUrl);
+    
+    // Only update video if URL has changed
+    if (newVideoUrl !== this._previousVideoUrl) {
+      this._previousVideoUrl = newVideoUrl;
+      this.mp4 = newVideoUrl;
+      
+      if (this.player) {
+        // Store current video state
+        const wasPlaying = !this.player.paused();
+        const currentTime = this.player.currentTime();
+        
+        this.player.src(this.mp4);
+        
+        // Wait for video to load before setting time
+        await new Promise(resolve => {
+          this.player.one('loadedmetadata', resolve);
+        });
+        
+        // Restore video position
+        this.player.currentTime(currentTime);
+        
+        // Restore play state if it was playing
+        if (wasPlaying) {
+          await this.player.play();
+        }
+      }
+    }
+    
+    // If animation exists, reload it
+    if (this.animItem) {
+      const currentTime = this.player ? this.player.currentTime() : 0;
+      this.animItem.destroy();
+      await this._initAnimation();
+      this._syncAnimationVideo();
+      
+      // Sync animation to current video position
+      if (currentTime > 0) {
+        this.animItem.goToAndStop(Math.round(currentTime * 1000));
+      }
+    }
   }
 
   disconnectedCallback() {
     this._pollingActive = false;
+    if (this.animItem) {
+      this.animItem.destroy();
+    }
+    if (this.player) {
+      this.player.dispose();
+    }
     document.removeEventListener("keydown", this._handleDocumentKeydown);
     super.disconnectedCallback();
+  }
+
+  async updated(changedProperties) {
+    super.updated(changedProperties);
+    
+    // Check if any of our critical properties changed
+    if (
+      changedProperties.has('key') ||
+      changedProperties.has('videoUrl') ||
+      changedProperties.has('payload')
+    ) {
+      this.isLoading = true;
+      await this._updateVideoAndAnimation();
+      this.isLoading = false;
+    }
   }
 
   render() {

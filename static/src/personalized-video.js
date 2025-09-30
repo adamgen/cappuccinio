@@ -100,6 +100,7 @@ export class PersonalizedVideo extends LitElement {
     debug: { type: Boolean },
     videoHeight: { type: Number },
     videoWidth: { type: Number },
+    aspectRatio: { type: Number },
     payload: {
       type: Object,
     },
@@ -206,7 +207,8 @@ export class PersonalizedVideo extends LitElement {
   render() {
     const dbgAnimationStyle = this.debug ? "border: 2px dotted red;" : "";
     const dbgVideoStyle = this.debug ? "border: 2px dotted blue;" : "";
-    const aspectRatio = this.videoWidth / this.videoHeight;
+    const calculatedAspectRatio = this.aspectRatio || (this.videoWidth / this.videoHeight);
+    const aspectRatioStyle = this.aspectRatio ? `aspect-ratio: ${this.aspectRatio};` : '';
     const background = this.placeholderImage
       ? `background-image: url(${this.placeholderImage}); background-repeat: no-repeat; background-size: contain; background-position: center center;`
       : "";
@@ -259,7 +261,7 @@ export class PersonalizedVideo extends LitElement {
           id="${VIDEO_ELEMENT_ID}"
           class="video-js"
           style="${dbgVideoStyle}; height: ${this.videoHeight}px; width: ${this
-            .videoWidth}px; max-height: 100%; max-width: 100%; background: #ffffff00"
+            .videoWidth}px; max-height: 100%; max-width: 100%; background: #ffffff00; ${aspectRatioStyle}"
           webkit-playsinline
           playsinline
           poster="${this.placeholderImage}"
@@ -270,7 +272,7 @@ export class PersonalizedVideo extends LitElement {
         >
           <div
             id="${LOTTIE_ELEMENT_ID}"
-            style="${dbgAnimationStyle}; aspect-ratio: ${aspectRatio}; max-height: 100% max-width: 100%"
+            style="${dbgAnimationStyle}; aspect-ratio: ${calculatedAspectRatio}; max-height: 100% max-width: 100%; ${aspectRatioStyle}"
           ></div>
         </div>
         ${this.isLoading ? loader : ""} ${this.dbg}

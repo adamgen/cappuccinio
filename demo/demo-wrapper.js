@@ -607,6 +607,11 @@ export class DemoWrapper extends LitElement {
   selectVideo(video) {
     this.selectedVideo = video;
     this.videoDropdownOpen = false;
+
+    const videoRef = this.shadowRoot.querySelector('#demo-video');
+    if (videoRef.player) {
+      videoRef.player.currentTime(0);
+    }
   }
 
   getVideoName() {

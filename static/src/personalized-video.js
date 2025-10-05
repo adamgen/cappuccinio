@@ -272,7 +272,7 @@ export class PersonalizedVideo extends LitElement {
         >
           <div
             id="${LOTTIE_ELEMENT_ID}"
-            style="${dbgAnimationStyle}; aspect-ratio: ${calculatedAspectRatio}; max-height: 100% max-width: 100%; ${aspectRatioStyle}"
+            style="${dbgAnimationStyle}; aspect-ratio: ${calculatedAspectRatio}; max-height: 100%; max-width: 100%; ${aspectRatioStyle}"
           ></div>
         </div>
         ${this.isLoading ? loader : ""} ${this.dbg}

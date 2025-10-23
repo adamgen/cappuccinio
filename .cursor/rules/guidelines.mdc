@@ -1,0 +1,8 @@
+---
+description:
+globs:
+alwaysApply: true
+---
+
+
+Do not write comments on obvious or trivial code. Only add it when the complexity is too hard to understand without the comment.

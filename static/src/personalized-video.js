@@ -258,7 +258,7 @@ export class PersonalizedVideo extends LitElement {
         href="https://cdn.jsdelivr.net/npm/@videojs/themes@1/dist/city/index.css"
         rel="stylesheet"
       />
-      <div style="position: relative;">
+      <div style="position: relative; aspect-ratio: ${this.aspectRatio};">
         <video
           height="${this.videoHeight}"
           width="${this.videoWidth}"

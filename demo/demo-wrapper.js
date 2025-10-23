@@ -13,7 +13,7 @@ if (!customElements.get('personalized-video')) {
 const OFFICE_IMAGES = {
     'office1': {
         url: ivory,
-        alt: 'טבע'
+        alt: 'לאומי'
     },
     'office2': {
         url: rami,
@@ -21,7 +21,7 @@ const OFFICE_IMAGES = {
     },
     'office3': {
         url: teva,
-        alt: 'טבע'
+        alt: 'לאומי'
     },
     'office4': {
         url: macabi,
@@ -405,7 +405,7 @@ export class DemoWrapper extends LitElement {
                                     </button>
                                     <button class="option-button ${this.selectedCompany === 'teva' ? 'selected' : ''}"
                                             @click=${() => this.selectCompany('teva')}>
-                                        טבע
+                                        לאומי
                                     </button>
                                 </div>
                             </div>
@@ -521,7 +521,7 @@ export class DemoWrapper extends LitElement {
                         key=${this.selectedVideo}
                         videoHeight="1080"
                         videoWidth="1080"
-                        .aspectRatio=${this.selectedVideo === 'tlv-bday' ? 1.6 : undefined}
+                        .aspectRatio=${this.selectedVideo === 'tlv-bday' ? 1.6 : 1}
                         .payload=${this.getVideoPayload()}
                         placeholderImage=${this.getPlaceholderImage()}
                         videoUrl=${this.getVideoUrl()}
@@ -688,7 +688,7 @@ export class DemoWrapper extends LitElement {
             'ivory': 'אייבורי',
             'rami': 'רמי לוי',
             'macabi': 'מכבי',
-            'teva': 'טבע'
+            'teva': 'לאומי'
         };
         return companyNames[this.selectedCompany];
     }

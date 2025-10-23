@@ -2,7 +2,7 @@ import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@3/co
 import { PersonalizedVideo } from '../static/src/personalized-video.js';
 import ivory from './images/ivory.svg';
 import rami from './images/rami.svg';
-import leumi from './images/leumi.svg';
+import teva from './images/teva.svg';
 import macabi from './images/macabi.svg';
 
 // Register the PersonalizedVideo component if not already registered
@@ -13,15 +13,15 @@ if (!customElements.get('personalized-video')) {
 const OFFICE_IMAGES = {
     'office1': {
         url: ivory,
-        alt: 'לאומי'
+        alt: 'טבע'
     },
     'office2': {
         url: rami,
         alt: 'רמי'
     },
     'office3': {
-        url: leumi,
-        alt: 'לאומי'
+        url: teva,
+        alt: 'טבע'
     },
     'office4': {
         url: macabi,
@@ -403,9 +403,9 @@ export class DemoWrapper extends LitElement {
                                             @click=${() => this.selectCompany('macabi')}>
                                         מכבי
                                     </button>
-                                    <button class="option-button ${this.selectedCompany === 'leumi' ? 'selected' : ''}"
-                                            @click=${() => this.selectCompany('leumi')}>
-                                        לאומי
+                                    <button class="option-button ${this.selectedCompany === 'teva' ? 'selected' : ''}"
+                                            @click=${() => this.selectCompany('teva')}>
+                                        טבע
                                     </button>
                                 </div>
                             </div>
@@ -688,7 +688,7 @@ export class DemoWrapper extends LitElement {
             'ivory': 'אייבורי',
             'rami': 'רמי לוי',
             'macabi': 'מכבי',
-            'leumi': 'לאומי'
+            'teva': 'טבע'
         };
         return companyNames[this.selectedCompany];
     }

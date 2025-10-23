@@ -202,6 +202,10 @@ export class PersonalizedVideo extends LitElement {
       await this._updateVideoAndAnimation();
       this.isLoading = false;
     }
+    
+    if (changedProperties.has('placeholderImage') && this.player) {
+      this.player.poster(this.placeholderImage);
+    }
   }
 
   render() {
@@ -264,7 +268,6 @@ export class PersonalizedVideo extends LitElement {
             .videoWidth}px; max-height: 100%; max-width: 100%; background: #ffffff00; ${aspectRatioStyle}"
           webkit-playsinline
           playsinline
-          poster="${this.placeholderImage}"
         ></video>
         <div
           dir="ltr"
@@ -323,6 +326,7 @@ export class PersonalizedVideo extends LitElement {
         controls: true,
         doubleClick: false,
         fullscreenToggle: false,
+        poster: this.placeholderImage,
         controlBar: {
           children: [
             // "playToggle",

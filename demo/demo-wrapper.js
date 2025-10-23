@@ -302,6 +302,7 @@ export class DemoWrapper extends LitElement {
     this.selectedCompany = 'ivory';
     this.selectedImage = 'office1';
     this.selectedName = 'avi';
+    this.selectedVideo = 'xtra'; // xtra / tlv-bday
     this.selectedVideo = 'tlv-bday'; // xtra / tlv-bday
     this.firstName = 'ישראל';
     this.lastName = 'ישראלי';
@@ -710,7 +711,7 @@ export class DemoWrapper extends LitElement {
   getPlaceholderImage() {
     const placeholderImages = {
       'xtra': 'https://gifts.xgiftcard.co.il//uploads/siteSetting/2024/08/1-main_logo-a7b9ff21.png',
-      'tlv-bday': 'https://www.tel-aviv.gov.il/Transparency/DocLib/עיריית%20תל%20אביב%20יפו.png'
+      'tlv-bday': undefined
     };
     return placeholderImages[this.selectedVideo];
   }

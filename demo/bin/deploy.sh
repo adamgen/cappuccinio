@@ -1,4 +1,4 @@
 #!/bin/bash
 
 # --branch main to upload to prod
-npx wrangler pages deploy dist --project-name demo
+npx wrangler pages deploy dist --project-name demo --branch main
